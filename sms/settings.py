@@ -98,8 +98,9 @@ WSGI_APPLICATION = 'sms.wsgi.application'
 # }
 
 DATABASES = {
-    "default":dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    "default": dj_database_url.parse(config("DATABASE_URL"))
 }
+
 # Cloudinary Configuration
 cloudinary.config (
     api_key = config('CLOUDINARY_API_KEY'),
